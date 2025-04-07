@@ -24,8 +24,9 @@ def check_password(password):
     Rule 1 : should have minimum 8 characters
     Rule 2 : Should have atleast one upper case
     Rule 3 : should have atleast 1 numeric value
+    Rule 4 : should have atleast 1 special character
     """
-    return re.fullmatch(r"^(?=.*[A-Z])(?=.*\d).{8,}$",password)
+    return re.fullmatch(r"^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()]).{8,}$",password)
 
 first_name = input("\nEnter First Name: ")
 while check_name(first_name) is None:
