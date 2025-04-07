@@ -18,6 +18,13 @@ def check_phone_number(number):
     """
     return re.fullmatch(r"\d{2}\s\d{10}",number)
 
+def check_password(password):
+    """
+    This function checks if the password follows the specified rules
+    Rule 1 : should have minimum 8 characters
+    """
+    return re.fullmatch(r".{8,}",password)
+
 first_name = input("\nEnter First Name: ")
 while check_name(first_name) is None:
     print("\nName should start with a capital letter and have at least 3 letters!")
@@ -38,3 +45,7 @@ while check_phone_number(phone_number) is None:
     print("\nEnter Valid phone number!!")
     phone_number = input("\nEnter your phone number: ")
     
+password = input("\nEnter your password: ")
+while check_password(password) is None:
+    print("\nEnter Valid password!!")
+    password = input("\nEnter your password: ")
