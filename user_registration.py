@@ -8,9 +8,12 @@ def check_name(name):
 
 def check_email(email):
     """
-    This function checks if the given mail id is valid or not
+    This function checks if the given mail id is valid or not and follows the given conditions
+    Conditions :
+    abc.xyz@bl.co.in 
+    Email should have 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions
     """
-    return re.fullmatch(r"^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$",email)
+    return re.fullmatch(r"^[a-zA-Z0-9+]+(\.[a-zA-Z0-9+]+)?@[a-zA-Z0-9]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$",email)
 
 def check_phone_number(number):
     """
@@ -36,12 +39,12 @@ while check_name(first_name) is None:
 last_name = input("\nEnter Last Name: ")
 while check_name(last_name) is None:
     print("\nName should start with a capital letter and have at least 3 letters!")
-    first_name = input("\nEnter Last Name: ")
+    last_name = input("\nEnter Last Name: ")
 
 email_id = input("\nEnter your EmailID: ")
 while check_email(email_id) is None:
     print("\nEnter Valid EmailID!")
-    first_name = input("\nEnter your EmailID: ")
+    email_id = input("\nEnter your EmailID: ")
 
 phone_number = input("\nEnter your phone number: ")
 while check_phone_number(phone_number) is None:
