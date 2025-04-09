@@ -4,7 +4,7 @@ def check_name(name):
     """
     This function checks if the given name is starting with a capital letter and has a minimum of 3 letters
     """
-    return re.fullmatch(r"[A-Z][a-z]{2,}", name)
+    return re.fullmatch(r"[A-Z][a-z]{1,}", name)
 
 def check_email(email):
     """
@@ -29,29 +29,30 @@ def check_password(password):
     Rule 3 : should have atleast 1 numeric value
     Rule 4 : should have atleast 1 special character
     """
-    return re.fullmatch(r"^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()]).{8,}$",password)
+    return re.fullmatch(r"^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+]).{8,}$",password)
 
-first_name = input("\nEnter First Name: ")
-while check_name(first_name) is None:
-    print("\nName should start with a capital letter and have at least 3 letters!")
+if __name__ == "__main__":
     first_name = input("\nEnter First Name: ")
+    while check_name(first_name) is None:
+        print("\nName should start with a capital letter and have at least 3 letters!")
+        first_name = input("\nEnter First Name: ")
 
-last_name = input("\nEnter Last Name: ")
-while check_name(last_name) is None:
-    print("\nName should start with a capital letter and have at least 3 letters!")
     last_name = input("\nEnter Last Name: ")
+    while check_name(last_name) is None:
+        print("\nName should start with a capital letter and have at least 3 letters!")
+        last_name = input("\nEnter Last Name: ")
 
-email_id = input("\nEnter your EmailID: ")
-while check_email(email_id) is None:
-    print("\nEnter Valid EmailID!")
     email_id = input("\nEnter your EmailID: ")
+    while check_email(email_id) is None:
+        print("\nEnter Valid EmailID!")
+        email_id = input("\nEnter your EmailID: ")
 
-phone_number = input("\nEnter your phone number: ")
-while check_phone_number(phone_number) is None:
-    print("\nEnter Valid phone number!!")
     phone_number = input("\nEnter your phone number: ")
-    
-password = input("\nEnter your password: ")
-while check_password(password) is None:
-    print("\nEnter Valid password!!")
+    while check_phone_number(phone_number) is None:
+        print("\nEnter Valid phone number!!")
+        phone_number = input("\nEnter your phone number: ")
+        
     password = input("\nEnter your password: ")
+    while check_password(password) is None:
+        print("\nEnter Valid password!!")
+        password = input("\nEnter your password: ")
